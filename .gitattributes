@@ -1,1 +1,2 @@
-datasets/people-2000000.csv filter=lfs diff=lfs merge=lfs -text
+datasets/*.csv filter=lfs diff=lfs merge=lfs -text
+artifacts/*.csv filter=lfs diff=lfs merge=lfs -text
