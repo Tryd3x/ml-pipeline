@@ -8,28 +8,39 @@ import numpy as np
 
 from sklearn.model_selection import train_test_split
 
+from dataclasses import dataclass
 
 """The configuration creates a new folder with the data sorted into raw, train and test files"""
+@dataclass
 class DataIngestionConfig:
-    project_root = fetch_project_root(os.path.abspath(__file__))
-    folder_path = 'artifacts'
-    train_data_file = os.path.join(project_root,folder_path,"train.csv")
-    test_data_file = os.path.join(project_root,folder_path,"test.csv")
-    raw_data_file = os.path.join(project_root,folder_path,"raw.csv")
+    
+    path_to_file: str
+
+    def __post_init__(self):
+        self.project_root = fetch_project_root(os.path.abspath(__file__))
+        self.folder_path = os.path.basename(self.path_to_file).split('.')[0]
+        print(f"folder path: {self.folder_path}")
+        self.train_data_file = os.path.join(self.project_root,'artifacts',self.folder_path,"train.csv")
+        self.test_data_file = os.path.join(self.project_root,'artifacts',self.folder_path,"test.csv")
+        self.raw_data_file = os.path.join(self.project_root,'artifacts',self.folder_path,"raw.csv")
 
 
 class DataIngestion:
-    def __init__(self,):
-        self.ingestion_config = DataIngestionConfig()
+    def __init__(self,path_to_data):
+        self.path_to_data = path_to_data
+        self.ingestion_config = DataIngestionConfig(path_to_file=self.path_to_data)
 
     def initiateDataIngestion(self):
+        print("Initiated Data Ingestion...")
+
+        print(self.ingestion_config)
         logging.info("Initializing data ingestion")
         try:
             # Can possibly make this code dynamic to handle multiple sources of data
-            data = pd.read_csv("../../datasets/people-2000000.csv")
+            data = pd.read_csv(self.path_to_data)
             logging.info("Data loaded successfully")
             
-            os.makedirs(os.path.join(self.ingestion_config.project_root, self.ingestion_config.folder_path),exist_ok=True)
+            os.makedirs(os.path.join(self.ingestion_config.project_root, 'artifacts', self.ingestion_config.folder_path),exist_ok=True)
             logging.info("Artifacts folder created")
             
             data.to_csv(self.ingestion_config.raw_data_file, index=False)
@@ -43,6 +54,8 @@ class DataIngestion:
             logging.info("Train and test data saved successfully")
 
             logging.info("Data ingestion completed")
+
+            print("Data Ingestion completed successfully")
             return (
                 self.ingestion_config.train_data_file,
                 self.ingestion_config.test_data_file,
@@ -54,5 +67,6 @@ class DataIngestion:
 
 
 if __name__ == "__main__":
-    obj = DataIngestion()
+    # obj = DataIngestion(path_to_data="../../datasets/people-2000000.csv")
+    obj = DataIngestion(path_to_data="../../datasets/income_cleandata.csv")
     obj.initiateDataIngestion()
