@@ -21,6 +21,5 @@ class CustomException(Exception):
 #     try:
 #         a = 1/0
 #     except Exception as e:
-#         print("Entered exception block")
 #         logging.error("division by zero")
 #         raise CustomException(e,sys)
