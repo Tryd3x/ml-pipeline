@@ -11,6 +11,7 @@ def get_requirements(filepath: str) -> List[str]:
         if HYPEN_E_DOT in packages:
             packages.remove(HYPEN_E_DOT)
 
+# Initiates module in edit mode 
 setup(
     name="ml-pipeline",
     version="0.0.1",

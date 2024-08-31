@@ -1,3 +1,4 @@
 /env
 /logs
-src/logs
+src/__pycache__
+/artifacts
