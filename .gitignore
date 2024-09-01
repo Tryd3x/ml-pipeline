@@ -1,4 +1,7 @@
 /env
 /logs
-src/__pycache__
-artifacts/
+/artifacts
+
+# Ignore __pycache__ directories and .pyc files
+__pycache__/
+*.pyc
