@@ -1,23 +1,12 @@
 import os
 import logging
+from src.utils import fetch_project_root
 from datetime import datetime
 
 
 '''
 Configuration for log directory and log file
 '''
-
-def fetch_project_root(current_path):
-    marker = ".project_root"
-    # D print(f"Initial_path: {current_path}")
-    while current_path != os.path.dirname(current_path):
-        # D print(current_path)
-        if marker in os.listdir(os.path.dirname(current_path)):
-            # D print(os.listdir(os.path.dirname(current_path)))
-            # D print(f"path returned: {os.path.dirname(current_path)}")
-            return os.path.dirname(current_path)
-        current_path = os.path.dirname(current_path)
-    raise FileNotFoundError(f"Project root marker file '{marker}' not found.")
 
 # D print(f"abspath = {os.path.abspath(__file__)}")
 log_dir = os.path.join(fetch_project_root(os.path.abspath(__file__)), 'logs') # Define creation of logs directory

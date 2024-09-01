@@ -1,7 +1,9 @@
 import os, sys
 
-from src.logger import logging, fetch_project_root
+from src.logger import logging
+from src.utils import fetch_project_root
 from src.exception import CustomException
+from src.components.data_transformation import DataTransformation
 
 import pandas as pd
 import numpy as np
@@ -20,9 +22,9 @@ class DataIngestionConfig:
         self.project_root = fetch_project_root(os.path.abspath(__file__))
         self.folder_path = os.path.basename(self.path_to_file).split('.')[0]
         print(f"folder path: {self.folder_path}")
-        self.train_data_file = os.path.join(self.project_root,'artifacts',self.folder_path,"train.csv")
-        self.test_data_file = os.path.join(self.project_root,'artifacts',self.folder_path,"test.csv")
-        self.raw_data_file = os.path.join(self.project_root,'artifacts',self.folder_path,"raw.csv")
+        self.train_data_file = os.path.join(self.project_root,'artifacts/data_ingestion',self.folder_path,"train.csv")
+        self.test_data_file = os.path.join(self.project_root,'artifacts/data_ingestion',self.folder_path,"test.csv")
+        self.raw_data_file = os.path.join(self.project_root,'artifacts/data_ingestion',self.folder_path,"raw.csv")
 
 
 class DataIngestion:
@@ -40,7 +42,7 @@ class DataIngestion:
             data = pd.read_csv(self.path_to_data)
             logging.info("Data loaded successfully")
             
-            os.makedirs(os.path.join(self.ingestion_config.project_root, 'artifacts', self.ingestion_config.folder_path),exist_ok=True)
+            os.makedirs(os.path.join(self.ingestion_config.project_root, 'artifacts/data_ingestion', self.ingestion_config.folder_path),exist_ok=True)
             logging.info("Artifacts folder created")
             
             data.to_csv(self.ingestion_config.raw_data_file, index=False)
@@ -69,4 +71,7 @@ class DataIngestion:
 if __name__ == "__main__":
     # obj = DataIngestion(path_to_data="../../datasets/people-2000000.csv")
     obj = DataIngestion(path_to_data="../../datasets/income_cleandata.csv")
-    obj.initiateDataIngestion()
+    train_data_path, test_data_path = obj.initiateDataIngestion()
+
+    data_transformation = DataTransformation()
+    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data_path, test_data_path)
