@@ -53,6 +53,8 @@ class DataTransformation:
     def remove_outliers_IQR(self, col, df):
         
         try:
+
+            # inter quartile approach to eliminate outliers
             q1 = df[col].quantile(0.25)
             q3 = df[col].quantile(0.75)
             iqr = q3-q1

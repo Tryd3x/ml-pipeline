@@ -4,6 +4,7 @@ from src.logger import logging
 from src.utils import fetch_project_root
 from src.exception import CustomException
 from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 
 import pandas as pd
 import numpy as np
@@ -37,12 +38,13 @@ class DataIngestion:
 
         print(self.ingestion_config)
         logging.info("Initializing data ingestion")
+        print("Initializing data ingestion")
         try:
             # Can possibly make this code dynamic to handle multiple sources of data
             data = pd.read_csv(self.path_to_data)
             logging.info("Data loaded successfully")
             
-            os.makedirs(os.path.join(self.ingestion_config.project_root, 'artifacts/data_ingestion', self.ingestion_config.folder_path),exist_ok=True)
+            os.makedirs(os.path.join(self.ingestion_config.project_root, 'artifacts','data_ingestion', self.ingestion_config.folder_path),exist_ok=True)
             logging.info("Artifacts folder created")
             
             data.to_csv(self.ingestion_config.raw_data_file, index=False)
@@ -75,3 +77,6 @@ if __name__ == "__main__":
 
     data_transformation = DataTransformation()
     train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_data_path, test_data_path)
+
+    model_trainer = ModelTrainer()
+    model_trainer.initiate_model_trainer(train_arr, test_arr)
