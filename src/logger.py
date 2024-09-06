@@ -8,7 +8,6 @@ from datetime import datetime
 Configuration for log directory and log file
 '''
 
-# D print(f"abspath = {os.path.abspath(__file__)}")
 log_dir = os.path.join(fetch_project_root(os.path.abspath(__file__)), 'logs') # Define creation of logs directory
 log_file = f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.log" # Define name-format of log file
 log_path = os.path.join(log_dir, log_file)
