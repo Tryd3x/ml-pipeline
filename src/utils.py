@@ -38,6 +38,14 @@ def save_object(file_path, obj):
     except Exception as e:
         logging.error(f"Failed to save {obj} to {dir_path}")
         raise CustomException(e,sys)
+    
+def load_object(file_path):
+    try:
+        with open(file_path, 'rb') as f:
+            return pickle.load(f)
+    except Exception as e:
+        logging.error(f"Failed to load {file_path}")
+        raise CustomException(e,sys)
 
 def evaluate_model(X_train, y_train, X_test, y_test, models, params):
     try:
