@@ -34,12 +34,12 @@ Install [Anaconda](https://www.anaconda.com/download) to manage project dependen
 Open Anaconda Terminal, create a new envrionment with python 3.10 installed.
 
 ```bash
-conda create -p env/ python=3.10
+    conda create -p env/ python=3.10
 ```
 
 Navigate to folder where *env* is located. Activate conda envrionment.
 ```bash
-conda activate env/
+    conda activate env/
 ```
 
 You should see the path of the enviroment on the leftmost hand side, indicating successfull activation.
@@ -61,7 +61,7 @@ Go to the project directory
 Activate conda environment
 
 ```bash
-conda activate env/
+    conda activate env/
 ```
 
 Install dependencies using pip
