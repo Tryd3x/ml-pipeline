@@ -1,5 +1,5 @@
 
-# Adult Income Prediction using Mac7hine Learning Pipeline
+# Adult Income Prediction using Machine Learning Pipeline
 
 This project aims to develop a Machine Learning pipeline to predict income levels based on the Adult Income Census dataset. The pipeline includes various components such as a custom logging system, custom exception handling and deliverables ensuring robust and transparent operation throughout the ML workflow.
 
