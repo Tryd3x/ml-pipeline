@@ -7,8 +7,6 @@ from src.components.data_ingestion import DataIngestion
 from src.components.data_transformation import DataTransformation
 from src.components.model_trainer import ModelTrainer
 
-from dataclasses import dataclass
-
 if __name__ == '__main__':
     try:
         obj = DataIngestion(path_to_data="../../datasets/income_cleandata.csv")

@@ -7,8 +7,6 @@ from src.utils import *
 import pandas as pd
 import numpy as np
 
-from dataclasses import dataclass
-
 class PredictionPipeline:
     def __init__(self):
         pass
@@ -22,6 +20,7 @@ class PredictionPipeline:
         model = load_object(model_path)
 
         scaled = processor.transform(features)
+        logging.info(f"Input features: {scaled.shape}")
         pred = model.predict(scaled)
 
         return pred
@@ -44,21 +43,21 @@ class CustomClass:
     def get_data_DataFrame(self):
         try:
             custom_input = {
-                'age': self.age,
-                'workclass': self.workclass,
-                'education_num': self.education_num,
-                'marital_status': self.marital_status,
-                'occupation': self.occupation,
-                'relationship': self.relationship,
-                'race': self.race,
-                'sex': self.sex,
-                'capital_gain': self.capital_gain,
-                'capital_loss': self.capital_loss,
-                'hours_per_week': self.hours_per_week
+                'age': [self.age],
+                'workclass': [self.workclass],
+                'education_num': [self.education_num],
+                'marital_status': [self.marital_status],
+                'occupation': [self.occupation],
+                'relationship': [self.relationship],
+                'race': [self.race],
+                'sex': [self.sex],
+                'capital_gain': [self.capital_gain],
+                'capital_loss': [self.capital_loss],
+                'hours_per_week': [self.hours_per_week]
             }
 
             df = pd.DataFrame(custom_input)
-            pass
+            return df
         except Exception as e:
             logging.error("Error creating data frame")
             raise CustomException(e,sys)
