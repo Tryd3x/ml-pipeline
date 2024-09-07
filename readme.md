@@ -1,5 +1,5 @@
 
-# Adult Income Prediction using Machine Learning Pipeline
+# Adult Income Prediction using Mac7hine Learning Pipeline
 
 This project aims to develop a Machine Learning pipeline to predict income levels based on the Adult Income Census dataset. The pipeline includes various components such as a custom logging system, custom exception handling and deliverables ensuring robust and transparent operation throughout the ML workflow.
 
@@ -27,9 +27,26 @@ The project demonstrates end-to-end model development and deployment while lever
 
 ## Tech Stack
 ![My Skills](https://simpleskill.icons.workers.dev/svg?i=python,anaconda,jupyter,numpy,scikitlearn,flask)
-## Run Locally
+## Virtual Environment Setup
 
-Clone the project
+Install [Anaconda](https://www.anaconda.com/download) to manage project dependencies.
+
+Open Anaconda Terminal, create a new envrionment with python 3.10 installed.
+
+```bash
+conda create -p env/ python=3.10
+```
+
+Navigate to folder where *env* is located. Activate conda envrionment.
+```bash
+conda activate env/
+```
+
+You should see the path of the enviroment on the leftmost hand side, indicating successfull activation.
+    
+## Install Dependencies
+
+Clone the [project](https://github.com/Tryd3x/ml-pipeline.git)
 
 ```bash
   git clone https://github.com/Tryd3x/ml-pipeline.git
@@ -39,6 +56,12 @@ Go to the project directory
 
 ```bash
   cd ml-pipeline
+```
+
+Activate conda environment
+
+```bash
+conda activate env/
 ```
 
 Install dependencies using pip
