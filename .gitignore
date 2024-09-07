@@ -1,6 +1,5 @@
 /env
 /logs
-/artifacts
 
 # Ignore __pycache__ directories and .pyc files
 __pycache__/
