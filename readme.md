@@ -1,78 +1,82 @@
+
 # Adult Income Prediction using Machine Learning Pipeline
 
-This project aims to develop a Machine Learning pipeline to predict income levels based on the Adult Income Census dataset. The pipeline includes various components such as a custom logging system, custom exception handling and deliverables ensuring robust and transparent operation throughout the ML workflow.
+This project develops a complete Machine Learning pipeline to predict income levels based on the Adult Income Census dataset. It includes custom logging, exception handling, and modular deliverables to ensure robust, transparent, and production-ready workflows across all ML stages.
 
-## Dataset
+## 📊 Dataset
 
-Becker, B. & Kohavi, R. (1996). Adult [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5XW20.
+Becker, B. & Kohavi, R. (1996). [Adult Dataset – UCI Machine Learning Repository](https://doi.org/10.24432/C5XW20)
 
+## 🚀 Features
 
-## Features
+- **Data Ingestion**: Loads raw data into the pipeline using Pandas.
+- **Exploratory Data Analysis (EDA)**: Identifies patterns, distributions, and correlations.
+- **Data Transformation**: Applies preprocessing steps for model readiness (encoding, scaling, etc.).
+- **Model Training**: Trains models including Random Forest, Decision Tree, and Logistic Regression.
+- **Model Evaluation**: Assesses accuracy, precision, recall, and other relevant metrics.
+- **Model Deployment**: Serves the model through a Flask API for real-time predictions.
+- **Logging & Exception Handling**: Implements custom logging and error handling to support observability and easy debugging.
+- **Artifacts & Deliverables**: Stores preprocessed datasets, trained models, and EDA outputs in an `artifacts/` directory for reproducibility.
 
-- **Data Ingestion**: Collecting and loading the dataset for processing.
-- **Exploratory Data Analysis (EDA)**: Analyzing the dataset to identify patterns, distributions, and correlations.
-- **Data Transformation**: Preprocessing and transforming the data for model readiness.
-- **Model Training**: Training various models to predict income levels.
-- **Model Evaluation**: Evaluating model performance using appropriate metrics.
-- **Model Deployment**: Deploying the model to a Flask server for making predictions on new data.
-- **Logger and Exception Handler**: Custom logging and exception handling mechanisms are integrated to provide transparency, easy debugging, and robust error management across the pipeline.
-- **Artifacts/Deliverables**: All key artifacts such as preprocessed data transformations, trained models, and important EDA insights are saved and versioned in the artifacts/ directory for reproducibility and further analysis.
-The project demonstrates end-to-end model development and deployment while leveraging custom logging and error handling for a production-ready solution.
+> This project demonstrates an end-to-end ML workflow from raw data to deployment, emphasizing transparency and maintainability in production.
 
+## 🛠️ Tech Stack
 
-## Tech Stack
 ![My Skills](https://simpleskill.icons.workers.dev/svg?i=python,anaconda,jupyter,numpy,scikitlearn,flask)
-## Virtual Environment Setup
+
+## ⚙️ Virtual Environment Setup
 
 Install [Anaconda](https://www.anaconda.com/download) to manage project dependencies.
 
-Open Anaconda Terminal, create a new envrionment with python 3.10 installed.
+Create a new environment with Python 3.10:
 
 ```bash
-    conda create -p env/ python=3.10
+conda create -p env/ python=3.10
 ```
 
-Navigate to folder where *env* is located. Activate conda envrionment.
-```bash
-    conda activate env/
-```
-
-You should see the path of the enviroment on the leftmost hand side, indicating successfull activation.
-    
-## Install Dependencies
-
-Clone the [project](https://github.com/Tryd3x/ml-pipeline.git)
+Activate the environment:
 
 ```bash
-  git clone https://github.com/Tryd3x/ml-pipeline.git
+conda activate env/
 ```
 
-Go to the project directory
+You should see the environment path on the terminal, indicating successful activation.
+
+## 📦 Install Dependencies
+
+Clone the project:
 
 ```bash
-  cd ml-pipeline
+git clone https://github.com/Tryd3x/ml-pipeline.git
 ```
 
-Activate conda environment
+Navigate into the project directory:
 
 ```bash
-    conda activate env/
+cd ml-pipeline
 ```
 
-Install dependencies using pip
+Activate your conda environment:
 
 ```bash
-  pip install -r "requirements.txt"
+conda activate env/
 ```
 
-Start the Flask server
+Install all required Python packages:
 
 ```bash
-  python app.py
+pip install -r requirements.txt
 ```
 
+## ▶️ Start the Flask Server
 
-## Inquiries
+Launch the Flask app for prediction:
 
-If you have any feedback, please reach out to us at htelegraphy@gmail.com
+```bash
+python app.py
+```
 
+## 📬 Inquiries
+
+If you have any questions or feedback, feel free to reach out:  
+**📧 htelegraphy@gmail.com**
